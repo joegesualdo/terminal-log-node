@@ -1,0 +1,30 @@
+{
+  "name": "@joegesualdo/terminal-log",
+  "repository": "joegesualdo/terminal-log-node",
+  "version": "0.0.1",
+  "description": "Pretty terminal logging.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "./node_modules/ava/cli.js -v test.js",
+    "build": "./node_modules/distify-cli/cli.js --input-file=./index.js --output-dir=./dist --is-node",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "terminal",
+    "log",
+    "logging",
+    "pretty",
+    "beautiful"
+  ],
+  "author": {
+    "name": "Joe Gesualdo",
+    "email": "joegesualdo@gmail.com",
+    "url": ""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "distify-cli": "0.0.8"
+  },
+  "dependencies": {}
+}
