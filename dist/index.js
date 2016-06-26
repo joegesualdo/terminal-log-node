@@ -43,9 +43,39 @@ module.exports =
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _chalk = __webpack_require__(1);
+
+	var _chalk2 = _interopRequireDefault(_chalk);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var log = {
+	  warn: function warn(message) {
+	    process.stdout.write(_chalk2.default.yellow('⚠') + ' ' + message + '\n');
+	  },
+	  error: function error(message) {
+	    process.stdout.write(_chalk2.default.red('✖') + ' ' + message + '\n');
+	  },
+	  success: function success(message) {
+	    process.stdout.write(_chalk2.default.green('✔') + ' ' + message + '\n');
+	  }
+	};
+
+	exports.default = log;
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
-	"use strict";
+	module.exports = require("chalk");
 
 /***/ }
 /******/ ]);

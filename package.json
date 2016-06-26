@@ -5,7 +5,7 @@
   "description": "Pretty terminal logging.",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "./node_modules/ava/cli.js -v test.js",
+    "test": "./node_modules/ava/cli.js -v test.js --serial",
     "build": "./node_modules/distify-cli/cli.js --input-file=./index.js --output-dir=./dist --is-node",
     "prepublish": "npm run build"
   },
@@ -26,5 +26,8 @@
     "ava": "^0.15.2",
     "distify-cli": "0.0.8"
   },
-  "dependencies": {}
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "mkdirp": "^0.5.1"
+  }
 }
