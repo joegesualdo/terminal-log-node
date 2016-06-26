@@ -1,22 +1,19 @@
-## @joegesualdo/terminal-log [![Build Status](https://travis-ci.org/joegesualdo/terminal-log-node.svg?branch=master)](https://travis-ci.org/joegesualdo/terminal-log-node)
+## terminal-log [![Build Status](https://travis-ci.org/joegesualdo/terminal-log-node.svg?branch=master)](https://travis-ci.org/joegesualdo/terminal-log-node)
 > Pretty terminal logging.
-
-## Highlights
-
-- Highlight 1
-- Highlight 2
-- Highlight 3
 
 ## Install
 ```
 $ npm install --save @joegesualdo/terminal-log 
 ```
 
+![example](https://raw.github.com/joegesualdo/terminal-log-node/master/example.png)
 ## Usage
 ```javascript
-var @joegesualdo/terminalLog = require("@joegesualdo/terminal-log").default
+import log from ('@joegesualdo/terminal-log')
 
-// insert code example here
+log.warn("Warn")
+log.error("Error")
+log.success("Success")
 ```
 
 ## Test
@@ -24,28 +21,46 @@ var @joegesualdo/terminalLog = require("@joegesualdo/terminal-log").default
 $ npm test
 ```
 ## API
-### `methodName(arg1, arg2)`
-> What does this method do?
+### `warn(message)`
 
 | Name | Type | Description |
 |------|------|-------------|
-| arg1 | `Array` | Test description|
-| arg2 | `String` | Test description|
-
-Returns: `Array`, of things
+| message | `String` | Message |
 
 ```javascript
-var @joegesualdo/terminalLog = require("@joegesualdo/terminal-log").default
+import log from ('@joegesualdo/terminal-log')
 
-// insert method example here
+log.warn("Warn")
 ```
+
+### `error(message)`
+
+| Name | Type | Description |
+|------|------|-------------|
+| message | `String` | Message |
+
+```javascript
+import log from ('@joegesualdo/terminal-log')
+
+log.error("Error")
+```
+
+### `success(message)`
+
+| Name | Type | Description |
+|------|------|-------------|
+| message | `String` | Message |
+
+```javascript
+import log from ('@joegesualdo/terminal-log')
+
+log.success("Success")
+```
+
 ## Build
 ```
 $ npm run build
 ```
-
-## Related
-- [example-package]() - Add description of the example package here.
 
 ## License
 MIT © [Joe Gesualdo]()
