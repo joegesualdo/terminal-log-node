@@ -27,6 +27,7 @@
     "distify-cli": "0.0.8"
   },
   "dependencies": {
+    "@joegesualdo/capture-output-node": "0.0.1",
     "chalk": "^1.1.3",
     "mkdirp": "^0.5.1"
   }

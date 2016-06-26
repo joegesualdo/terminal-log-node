@@ -1,45 +1,7 @@
 import test from 'ava';
 import log from './dist';
-import fs from 'fs';
 import chalk from 'chalk';
-import mkdirp from 'mkdirp';
-
-class CaptureOutput {
-  constructor() {
-    if (!fs.existsSync('./tmp')){
-      fs.mkdirSync('./tmp');
-    }
-    let fileName = './tmp/captured-ouput.txt';
-    this.originalStdoutWrite = process.stdout.write
-    this.originalStderrWrite = process.stderr.write
-    this.fileName = fileName;
-    var access = fs.createWriteStream(fileName);
-    process.stdout.write = process.stderr.write = access.write.bind(access);
-    process.on('unhandledRejection', (reason) => {
-      this.stop()
-      throw new Error('error');
-    });
-  }
-  get() {
-    return new Promise(resolve => {
-      var readStream = fs.createReadStream(this.fileName);
-      let file = '';
-      readStream.on('data', (chunk) => {
-        file += chunk.toString('utf8');
-      })
-      readStream.on('end', () => {
-        resolve(file)
-      })
-    })
-  }
-  stop() {
-    return new Promise(resolve => {
-      process.stdout.write = this.originalStdoutWrite;
-      process.stderr.write = this.originalStderrWrite;
-      resolve();
-    })
-  }
-}
+import CaptureOutput from '@joegesualdo/capture-output-node';
 
 test.cb('warn', t => {
   var caputredOutput = new CaptureOutput();
