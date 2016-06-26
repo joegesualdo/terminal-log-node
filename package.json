@@ -1,7 +1,7 @@
 {
   "name": "@joegesualdo/terminal-log",
   "repository": "joegesualdo/terminal-log-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pretty terminal logging.",
   "main": "./dist/index.js",
   "scripts": {
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@joegesualdo/capture-output-node": "0.0.1",
-    "chalk": "^1.1.3",
-    "mkdirp": "^0.5.1"
+    "chalk": "^1.1.3"
   }
 }
