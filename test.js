@@ -2,9 +2,13 @@ import test from 'ava';
 import log from './dist';
 import fs from 'fs';
 import chalk from 'chalk';
+import mkdirp from 'mkdirp';
 
 class CaptureOutput {
   constructor() {
+    if (!fs.existsSync('./tmp')){
+      fs.mkdirSync('./tmp');
+    }
     let fileName = './tmp/captured-ouput.txt';
     this.originalStdoutWrite = process.stdout.write
     this.originalStderrWrite = process.stderr.write
@@ -37,7 +41,7 @@ class CaptureOutput {
   }
 }
 
-test.cb(t => {
+test.cb('warn', t => {
   var caputredOutput = new CaptureOutput();
 
   log.warn("Warning!")
@@ -49,7 +53,7 @@ test.cb(t => {
   })
 });
 
-test.cb(t => {
+test.cb('error', t => {
   var caputredOutput = new CaptureOutput();
 
   log.error("Error!")
@@ -61,7 +65,7 @@ test.cb(t => {
   })
 });
 
-test.cb(t => {
+test.cb('success', t => {
   var caputredOutput = new CaptureOutput();
 
   log.success("Success!")
