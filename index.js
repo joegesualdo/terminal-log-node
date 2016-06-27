@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-let log = {
+const log = {
   warn(message) {
     process.stdout.write(`${chalk.yellow('⚠')} ${message}\n`);
   },
@@ -9,6 +9,9 @@ let log = {
   },
   success(message) {
     process.stdout.write(`${chalk.green('✔')} ${message}\n`);
+  },
+  created(name) {
+    process.stdout.write(`${chalk.green('create')} ${name}\n`);
   },
 };
 

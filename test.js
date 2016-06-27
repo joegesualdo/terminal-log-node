@@ -38,3 +38,15 @@ test.cb('success', t => {
     t.end();
   })
 });
+
+test.cb('created', t => {
+  var caputredOutput = new CaptureOutput();
+
+  log.created("index.js")
+
+  caputredOutput.get()
+  .then((output) => {
+    t.is(output, `${chalk.green('create')} index.js\n`)
+    t.end();
+  })
+});
