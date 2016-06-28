@@ -1,11 +1,11 @@
 {
   "name": "@joegesualdo/terminal-log",
   "repository": "joegesualdo/terminal-log-node",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Pretty terminal logging.",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "./node_modules/ava/cli.js -v test.js --serial",
+    "test": "npm run build && ./node_modules/ava/cli.js -v test.js --serial",
     "build": "./node_modules/distify-cli/cli.js --input-file=./index.js --output-dir=./dist --is-node",
     "prepublish": "npm run build"
   },
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@joegesualdo/capture-output-node": "0.0.1",
+    "@joegesualdo/indent-string": "0.0.4",
     "chalk": "^1.1.3"
   }
 }

@@ -15,6 +15,18 @@ test.cb('warn', t => {
   })
 });
 
+test.cb('warn with indent', t => {
+  var caputredOutput = new CaptureOutput();
+
+  log.warn("Warning!", 2)
+
+  caputredOutput.get()
+  .then((output) => {
+    t.is(output, `  ${chalk.yellow('⚠')} Warning!\n`)
+    t.end();
+  })
+});
+
 test.cb('error', t => {
   var caputredOutput = new CaptureOutput();
 
@@ -23,6 +35,18 @@ test.cb('error', t => {
   caputredOutput.get()
   .then((output) => {
     t.is(output, `${chalk.red('✖')} Error!\n`)
+    t.end();
+  })
+});
+
+test.cb('error with indent', t => {
+  var caputredOutput = new CaptureOutput();
+
+  log.error("Error!", 2);
+
+  caputredOutput.get()
+  .then((output) => {
+    t.is(output, `  ${chalk.red('✖')} Error!\n`)
     t.end();
   })
 });
@@ -39,6 +63,18 @@ test.cb('success', t => {
   })
 });
 
+test.cb('success with indent', t => {
+  var caputredOutput = new CaptureOutput();
+
+  log.success("Success!", 2);
+
+  caputredOutput.get()
+  .then((output) => {
+    t.is(output, `  ${chalk.green('✔')} Success!\n`)
+    t.end();
+  })
+});
+
 test.cb('created', t => {
   var caputredOutput = new CaptureOutput();
 
@@ -47,6 +83,18 @@ test.cb('created', t => {
   caputredOutput.get()
   .then((output) => {
     t.is(output, `${chalk.green('create')} index.js\n`)
+    t.end();
+  })
+});
+
+test.cb('created with indent', t => {
+  var caputredOutput = new CaptureOutput();
+
+  log.created("index.js", 2)
+
+  caputredOutput.get()
+  .then((output) => {
+    t.is(output, `  ${chalk.green('create')} index.js\n`)
     t.end();
   })
 });

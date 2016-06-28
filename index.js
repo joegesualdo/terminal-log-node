@@ -1,17 +1,18 @@
 import chalk from 'chalk';
+import indentString from '@joegesualdo/indent-string';
 
 const log = {
-  warn(message) {
-    process.stdout.write(`${chalk.yellow('⚠')} ${message}\n`);
+  warn(message, indent = 0) {
+    process.stdout.write(indentString(`${chalk.yellow('⚠')} ${message}\n`, indent));
   },
-  error(message) {
-    process.stdout.write(`${chalk.red('✖')} ${message}\n`);
+  error(message, indent = 0) {
+    process.stdout.write(indentString(`${chalk.red('✖')} ${message}\n`, indent));
   },
-  success(message) {
-    process.stdout.write(`${chalk.green('✔')} ${message}\n`);
+  success(message, indent = 0) {
+    process.stdout.write(indentString(`${chalk.green('✔')} ${message}\n`, indent));
   },
-  created(name) {
-    process.stdout.write(`${chalk.green('create')} ${name}\n`);
+  created(name, indent = 0) {
+    process.stdout.write(indentString(`${chalk.green('create')} ${name}\n`, indent));
   },
 };
 
